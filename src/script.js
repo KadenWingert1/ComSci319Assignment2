@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
-import itemsData from './itemsData.json'; // import item data from a JSON file
+import itemsData from './Products'; // import item data from a JSON file
 
 function BrowseView() {
   const [cart, setCart] = useState({}); // global cart variable
