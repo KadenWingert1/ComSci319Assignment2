@@ -1,3 +1,4 @@
+
 export const Products = [
   {
     "id": 1,
@@ -5,7 +6,7 @@ export const Products = [
     "price": 200,
     "description": "Every Day Carry Pocket Knives.",
     "category": "blade",
-    "image": "images/pocketknife.jpg",
+    "image": require("./pocketKnife.jpg"),
     "rating": {"rate": 4.75, "count": 111},
   },
   {
@@ -14,7 +15,7 @@ export const Products = [
     "price": 800,
     "description": "Choose From a Variety of Handcrafted Swords",
     "category": "blade",
-    "image": "images/swords.jfif",
+    "image": require("./swords.jfif"),
     "rating": {"rate": 4.8, "count": 61},
   },
   {
@@ -23,7 +24,7 @@ export const Products = [
     "price": 350,
     "description": "Choose From a Variety of Daggers",
     "category": "blade",
-    "image": "images/daggers.png",
+    "image": require("./daggers.png"),
     "rating": {"rate": 4.3, "count": 12},
   },
   {
@@ -32,7 +33,7 @@ export const Products = [
     "price": 125,
     "description": "Choose From a Variety of Resin Work Pices",
     "category": "handle",
-    "image": "images/resinWork.png",
+    "image": require("./resinWork.png"),
     "rating": {"rate": 4.7, "count": 51}
   },
   {
@@ -41,7 +42,7 @@ export const Products = [
     "price": 425,
     "description": "Handforged rings for both men and women",
     "category": "jewlery",
-    "image": "images/ring.jpg",
+    "image": require("./ring.jpg"),
     "rating": {"rate": 4.4, "count": 33},
   },
   {
@@ -51,7 +52,7 @@ export const Products = [
     "description":
     "Recieve a compeletely unique piece hand-made to fit your specifications",
     "category": "custom",
-    "image": "images/custom.jpg",
+    "image": require("./custom.jpg"),
     "rating": {"rate": 4.9, "count": 20},
   }
 ]

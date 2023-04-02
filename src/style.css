@@ -1,3 +1,7 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,38 +15,40 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/*Main background color*/
 body{
   background-color:burlywood
 }
-
+/*Background of the left side/navigation panel*/
 .h-screen.bg-slate-800.p-3{
   background-color:rgb(176, 136, 83);
 }
-
+/*Usde in the background of the product images*/
 .w-full{ 
-  background-color: antiquewhite;
+  background-color: burlywood;
 }
 .text-white{
 font-size: 2em;
 }
+/*Makes the spacing tighter on the left hand side*/
+.py-10{
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+/*Shrinks the image size a bit*/
+.w-full{
+  width: 80%;
+}
+/*Used for Filter by product and Browse Products*/
 .text-3xl.mb-2.font-bold.text-white{
   color:rgb(220, 221, 255);
   font-size: 3em;
-
 }
 /*Names of authors*/
 .text-gray-700.text-white{ 
   font-size: 1em;
 }
-/*Button categories*/
-button.inline-block{
-  color:white;
-}
 /*Background of images*/
 .category-section.fixed {
   background-color:burlywood;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
