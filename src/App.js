@@ -6,12 +6,14 @@ import React, { useState } from "react";
 //import { useEffect } from "react";
 import { Products } from "./Products";
 import { Categories } from "./Categories";
+import Cart from "./cart";
 
 export const App = () => {
   console.log("Step 1: After reading file :");
   const [ProductsCategory, setProductsCategory] = useState(Products);
   const [query, setQuery] = useState("");
   const [cart, setCart] = useState([0, 0, 0, 0, 0, 0]);
+  const [isCartVisible, setIsCartVisible] = useState(false);
 
   // var ProductsCategory = Products;
   const render_products = (ProductsCategory) => {
@@ -22,13 +24,14 @@ export const App = () => {
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-600 category-title">
             Products ({ProductsCategory.length})
           </h2>
-          <button>
+          <button onClick={() => setIsCartVisible(!isCartVisible)}>
             <img
               alt="Checkout"
               src={require("./checkout.png")}
               className="checkout"
             />
           </button>
+          <Cart isCartVisible={isCartVisible} />
         </div>
         <div
           className="m-6 p-3 mt-10 ml-0 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-
