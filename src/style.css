@@ -22,6 +22,15 @@ body{
 .changeCart:hover{
   cursor: pointer;
 }
+/*Sizes the checkout button image*/
+.checkout{
+width: 4rem;
+margin-right: 6rem;
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+}
 /*Background of the left side/navigation panel*/
 .h-screen.bg-slate-800.p-3{
   background-color:rgb(176, 136, 83);

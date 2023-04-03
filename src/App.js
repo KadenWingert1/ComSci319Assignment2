@@ -2,7 +2,8 @@ import "./App.css";
 import "./style.css";
 import logo from "./logo.png";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+//import { useEffect } from "react";
 import { Products } from "./Products";
 import { Categories } from "./Categories";
 
@@ -17,17 +18,18 @@ export const App = () => {
     return (
       <div className="category-section fixed">
         {console.log("Step 3 : in render_products ")}
-        <h2 className="text-3xl font-extrabold tracking-tight text-gray-600 category-title">
-          Products ({ProductsCategory.length})
-        </h2>
-        <button>
-          <img
-            alt="Checkout"
-            src= "./checkout.png"
-            className="w-full h-full object-center object-cover lg:w-full lg:h-
-full"
-          />
-        </button>
+        <div className="container">
+          <h2 className="text-3xl font-extrabold tracking-tight text-gray-600 category-title">
+            Products ({ProductsCategory.length})
+          </h2>
+          <button>
+            <img
+              alt="Checkout"
+              src={require("./checkout.png")}
+              className="checkout"
+            />
+          </button>
+        </div>
         <div
           className="m-6 p-3 mt-10 ml-0 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-
 cols-2 lg:grid-cols-6 xl:gap-x-10"
@@ -41,7 +43,7 @@ cols-2 lg:grid-cols-6 xl:gap-x-10"
 overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none"
               >
                 <img
-                  alt="Product Image"
+                  alt="Product"
                   src={product.image}
                   className="w-full h-full object-center object-cover lg:w-full lg:h-
 full"
