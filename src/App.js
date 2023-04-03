@@ -1,27 +1,33 @@
 import "./App.css";
-import "./style.css"
+import "./style.css";
 import logo from "./logo.png";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Products } from "./Products";
 import { Categories } from "./Categories";
-
 
 export const App = () => {
   console.log("Step 1: After reading file :");
   const [ProductsCategory, setProductsCategory] = useState(Products);
   const [query, setQuery] = useState("");
+  const [cart, setCart] = useState([0, 0, 0, 0, 0, 0]);
+
   // var ProductsCategory = Products;
   const render_products = (ProductsCategory) => {
     return (
       <div className="category-section fixed">
         {console.log("Step 3 : in render_products ")}
-        <h2
-          className="text-3xl font-extrabold tracking-tight text-gray-600 category-
-title"
-        >
+        <h2 className="text-3xl font-extrabold tracking-tight text-gray-600 category-title">
           Products ({ProductsCategory.length})
         </h2>
+        <button>
+          <img
+            alt="Checkout"
+            src= "./checkout.png"
+            className="w-full h-full object-center object-cover lg:w-full lg:h-
+full"
+          />
+        </button>
         <div
           className="m-6 p-3 mt-10 ml-0 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-
 cols-2 lg:grid-cols-6 xl:gap-x-10"
@@ -50,12 +56,35 @@ full"
                         {product.title}
                       </span>
                     </a>
-                    <p>Category:  {product.category}</p>
+                    <p>Category: {product.category}</p>
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">
                     Rating:
                     {product.rating.rate}
                   </p>
+                  <button
+                    className="inline-block bg-amber-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2"
+                    onClick={() => {
+                      const newState = [...cart];
+                      newState[product.id - 1] += 1;
+                      setCart(newState);
+                    }}
+                  >
+                    Add
+                  </button>
+                  <button
+                    className="inline-block bg-amber-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2"
+                    onClick={() => {
+                      const newState = [...cart];
+                      if (newState[product.id - 1] > 0) {
+                        newState[product.id - 1] -= 1;
+                        setCart(newState);
+                      }
+                    }}
+                  >
+                    Remove
+                  </button>
+                  <p>In Cart: {cart[product.id - 1]}</p>
                 </div>
                 <p
                   className="text-sm font-medium
@@ -70,14 +99,14 @@ text-green-600"
       </div>
     );
   };
+  console.log();
 
-
-function handleClick(tag) {
+  function handleClick(tag) {
     console.log("Step 4 : in handleClick", tag);
     const filtered = Products.filter((product) => {
-    //   console.log("product:", product);
-    //   console.log("tag:", tag);
-    //   console.log("product.category:", product.category);
+      //   console.log("product:", product);
+      //   console.log("tag:", tag);
+      //   console.log("product.category:", product.category);
       return product.category === tag;
     });
     console.log("filtered products:", filtered);
@@ -85,7 +114,7 @@ function handleClick(tag) {
     console.log("Step 5 : ", ProductsCategory.length);
   }
 
-const handleChange = (e) => {
+  const handleChange = (e) => {
     setQuery(e.target.value);
     const filtered = Products.filter((product) => {
       if (e.target.value === "") return true;
@@ -93,7 +122,7 @@ const handleChange = (e) => {
     });
     setProductsCategory(filtered);
   };
-  
+
   return (
     <div className="flex fixed flex-row">
       {console.log(
@@ -112,21 +141,37 @@ const handleChange = (e) => {
             Browse Products
           </h1>
           <p className="text-gray-700 text-white">
-            by -{" "}
-            <b>
-              Kaden Wingert & Bryce Maloy
-            </b>
+            by - <b>Kaden Wingert & Bryce Maloy</b>
           </p>
           <div className="py-10">
-            <input type="search" value={query} onChange={handleChange} placeholder = "Search..." style = {{backgroundColor: "white"}}/>
+            <input
+              type="search"
+              value={query}
+              onChange={handleChange}
+              placeholder="Search..."
+              style={{ backgroundColor: "white" }}
+            />
           </div>
           <div className="py-10">
-            {Categories ? <p className="text-white" style = {{color: "rgb(220, 221, 255)", fontWeight: "700"}}>Filter By Category: </p> : ""}
+            {Categories ? (
+              <p
+                className="text-white"
+                style={{ color: "rgb(220, 221, 255)", fontWeight: "700" }}
+              >
+                Filter By Category:{" "}
+              </p>
+            ) : (
+              ""
+            )}
             {Categories.map((tag) => (
               <button
                 key={tag}
                 className="inline-block bg-amber-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2"
-                style = {{color: "black", backgroundColor:"burlywood", fontSize: "20px"}}
+                style={{
+                  color: "black",
+                  backgroundColor: "burlywood",
+                  fontSize: "20px",
+                }}
                 onClick={() => {
                   handleClick(tag);
                 }}
