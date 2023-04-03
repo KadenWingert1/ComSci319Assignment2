@@ -56,7 +56,6 @@ full"
                 <div>
                   <h3 className="text-sm text-gray-700">
                     <a href={product.href}>
-                      <span aria-hidden="true" className="absolute inset-0" />
                       <span style={{ fontSize: "16px", fontWeight: "600" }}>
                         {product.title}
                       </span>

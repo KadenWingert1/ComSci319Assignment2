@@ -31,6 +31,12 @@ margin-right: 6rem;
   justify-content: space-between;
 }
 /*Sizes the checkout button image*/
+
+.inline-block.bg-amber-600.rounded-full.px-3.py-1.text-sm.font-semibold.text-gray-700.mr-2.mt-2{
+background-color: rgb(176, 136, 83);
+z-index: 20;
+}
+
 /*Background of the left side/navigation panel*/
 .h-screen.bg-slate-800.p-3{
   background-color:rgb(176, 136, 83);
