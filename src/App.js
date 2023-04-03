@@ -71,40 +71,20 @@ text-green-600"
     );
   };
 
-// function handleClick(tag) {
-//     console.log("Step 4 : in handleClick", tag);
-//     const filtered = Products.filter((product) => product.category === tag);
-//     setProductsCategory(filtered);
-//     console.log("Step 5 : ", Products.length, ProductsCategory.length);
-//   }
+
 function handleClick(tag) {
     console.log("Step 4 : in handleClick", tag);
     const filtered = Products.filter((product) => {
-      console.log("product:", product);
-      console.log("tag:", tag);
-      console.log("product.category:", product.category);
+    //   console.log("product:", product);
+    //   console.log("tag:", tag);
+    //   console.log("product.category:", product.category);
       return product.category === tag;
     });
     console.log("filtered products:", filtered);
     setProductsCategory(filtered);
     console.log("Step 5 : ", ProductsCategory.length);
   }
-//   const handleChange = (e) => {
-//     setQuery(e.target.value);
-//     console.log(
-//       "Step 6 : in handleChange, Target Value :",
-//       e.target.value,
-//       " Query Value :",
-//       query
-//     );
-//     const results = ProductsCategory.filter((eachProduct) => {
-//       if (e.target.value === "") return ProductsCategory;
-//       return eachProduct.title
-//         .toLowerCase()
-//         .includes(e.target.value.toLowerCase());
-//     });
-//     setProductsCategory(results);
-//   };
+
 const handleChange = (e) => {
     setQuery(e.target.value);
     const filtered = Products.filter((product) => {
