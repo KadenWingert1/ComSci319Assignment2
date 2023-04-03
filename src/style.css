@@ -1,93 +1,91 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 /*Main background color*/
-body {
-  background-color: burlywood;
+body{
+  background-color:burlywood
 }
 
 /*Sizes the checkout button image*/
-.checkout {
-  width: 4rem;
-  margin-right: 6rem;
+.checkout{
+width: 4rem;
+margin-right: 7rem;
 }
 /*Container for Products(#) and checkout button image*/
-.container {
+.container{
   display: flex;
   justify-content: space-between;
 }
 /*Sizes the checkout button image*/
 
 /*Add/subtract and filter buttons*/
-.inline-block.bg-amber-600.rounded-full.px-3.py-1.text-sm.font-semibold.text-gray-700.mr-2.mt-2 {
-  background-color: rgb(176, 136, 83);
-  width: 70%;
+.inline-block.bg-amber-600.rounded-full.px-3.py-1.text-sm.font-semibold.text-gray-700.mr-2.mt-2{
+background-color: rgb(176, 136, 83);
+width: 70%;
 }
 
 /*Add/sub button's */
-.addsub {
+.addsub{
   background-color: rgb(176, 136, 83);
-  font-size: 0.75rem;
+  font-size: .75em;
   font-weight: bold;
   max-height: 4em;
   max-width: 4rem;
   margin-right: 0px;
-  padding: 0.2rem 0.5rem; 
-  text-align: center;
-  line-height: 1.1em;
-  width: 40%;
-  justify-content:space-between;
-}
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align:center;
+  line-height:1.1em;
+  }
+  .addsubContainer{
+    display: flex;
+  }
 
-
-
-.addsubContainer {
-  display: flex;
-}
 
 /*Background of the left side/navigation panel*/
-.h-screen.bg-slate-800.p-3 {
-  background-color: rgb(176, 136, 83);
+.h-screen.bg-slate-800.p-3{
+  background-color:rgb(176, 136, 83);
 }
 /*Usde in the background of the product images*/
-.w-full {
+.w-full{ 
   background-color: burlywood;
 }
-.text-white {
-  font-size: 2em;
+.text-white{
+font-size: 2em;
 }
 /*Makes the spacing tighter on the left hand side*/
-.py-10 {
+.py-10{
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
 /*Shrinks the image size a bit*/
-.w-full {
+.w-full{
   width: 80%;
 }
 /*Used for Filter by product and Browse Products*/
-.text-3xl.mb-2.font-bold.text-white {
-  color: rgb(220, 221, 255);
+.text-3xl.mb-2.font-bold.text-white{
+  color:rgb(220, 221, 255);
   font-size: 3em;
 }
 /*Names of authors*/
-.text-gray-700.text-white {
+.text-gray-700.text-white{ 
   font-size: 1em;
 }
 /*Background of images*/
 .category-section.fixed {
-  background-color: burlywood;
+  background-color:burlywood;
 }

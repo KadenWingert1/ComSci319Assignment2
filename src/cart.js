@@ -2,7 +2,7 @@ import React from "react";
 
 function Cart({ isCartVisible }) {
   return (
-<>
+<div>
 {isCartVisible && (
     <div className="cart-section fixed">
       {
@@ -164,7 +164,7 @@ Return</a> */}
       }
     </div>
   )}
-  </>
+  </div>
   )};
 
   export default Cart;

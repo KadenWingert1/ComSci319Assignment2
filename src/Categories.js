@@ -1,1 +1,1 @@
-export const Categories = ["Blades", "Resin", "Jewelry", "Custom Orders"];
+export const Categories = ["Blades", "Resin", "Jewelry", "Custom"];

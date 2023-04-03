@@ -31,8 +31,8 @@ export const App = () => {
               className="checkout"
             />
           </button>
-          <Cart isCartVisible={isCartVisible} />
         </div>
+        <Cart isCartVisible={isCartVisible} />
         <div
           className="m-6 p-3 mt-10 ml-0 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-
 cols-2 lg:grid-cols-6 xl:gap-x-10"
@@ -66,7 +66,7 @@ text-green-600"
                 >
                   ${product.price}
                 </p>
-                    <p>Category: {product.category}</p>
+                    Category: {product.category}
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">
                     Rating:
