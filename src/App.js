@@ -60,42 +60,46 @@ full"
                         {product.title}
                       </span>
                     </a>
+                    <p
+                  className="text-sm font-medium
+text-green-600"
+                >
+                  ${product.price}
+                </p>
                     <p>Category: {product.category}</p>
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">
                     Rating:
                     {product.rating.rate}
                   </p>
+                  <div className="addsubContainer">
                   <button
-                    className="inline-block bg-amber-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2"
+                    className="inline-block bg-amber-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2 addsub"
                     onClick={() => {
                       const newState = [...cart];
                       newState[product.id - 1] += 1;
                       setCart(newState);
+                      console.log("ADD BUTTON:" + cart);
                     }}
                   >
                     Add
                   </button>
                   <button
-                    className="inline-block bg-amber-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2"
+                    className="inline-block bg-amber-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2 addsub"
                     onClick={() => {
                       const newState = [...cart];
                       if (newState[product.id - 1] > 0) {
                         newState[product.id - 1] -= 1;
                         setCart(newState);
+                        console.log("SUB BUTTON:" + cart);
                       }
                     }}
                   >
                     Remove
                   </button>
-                  <p>In Cart: {cart[product.id - 1]}</p>
+                  </div>
+                  <p>Cart: {cart[product.id - 1]}</p>
                 </div>
-                <p
-                  className="text-sm font-medium
-text-green-600"
-                >
-                  ${product.price}
-                </p>
               </div>
             </div>
           ))}
