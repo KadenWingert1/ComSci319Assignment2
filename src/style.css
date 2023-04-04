@@ -25,6 +25,9 @@ body{
 width: 4rem;
 margin-right: 7rem;
 }
+.checkout:hover{
+cursor: pointer;
+}
 /*Container for Products(#) and checkout button image*/
 .container{
   display: flex;
@@ -53,6 +56,10 @@ width: 70%;
   }
   .addsubContainer{
     display: flex;
+  }
+
+  .grid.grid-cols-1.md:grid-cols-2.xl:grid-cols-3.gap-4{
+    overflow-y: scroll;
   }
 
 

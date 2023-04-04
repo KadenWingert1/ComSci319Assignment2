@@ -1,19 +1,97 @@
 import React from "react";
 
-function Cart({ isCartVisible }) {
+function Cart({ isCartVisible, cart, setCart , ProductsCategory, setProductsCategory}) {
   return (
 <div>
 {isCartVisible && (
     <div className="cart-section fixed">
       {
         /* Cart content here */
-        <div class="container">
+        <div class="form-wrapper" id = "form-wrapper">
           <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
               <h1>View Your Cart</h1>
-              <div id="liveAlertPlaceholder"></div>
+              <div className="cartItems">
 
+          {/* Loop Products */}
+          {ProductsCategory.filter((product) => cart[product.id - 1] >= 1)
+  .map((product, index) => (
+            <div key={index} className="group relative shadow-lg">
+              <div
+                className=" min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md
+overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none"
+              >
+                <img
+                  alt="Product"
+                  src={product.image}
+                  className="w-full h-full object-center object-cover lg:w-full lg:h-
+full"
+                />
+              </div>
+              <div className="flex justify-between p-3">
+                <div>
+                  <h3 className="text-sm text-gray-700">
+                    <a href={product.href}>
+                      <span style={{ fontSize: "16px", fontWeight: "600" }}>
+                        {product.title}
+                      </span>
+                    </a>
+                    <p
+                  className="text-sm font-medium
+text-green-600"
+                >
+                  ${product.price}
+                </p>
+                    Category: {product.category}
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">
+                    Rating:
+                    {product.rating.rate}
+                  </p>
+                  <div className="addsubContainer">
+                  <button
+                    className="inline-block bg-amber-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2 addsub"
+                    onClick={() => {
+                      const newState = [...cart];
+                      newState[product.id - 1] += 1;
+                      setCart(newState);
+                      console.log("ADD BUTTON:" + cart);
+                    }}
+                  >
+                    Add
+                  </button>
+                  <button
+                    className="inline-block bg-amber-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2 addsub"
+                    onClick={() => {
+                      const newState = [...cart];
+                      if (newState[product.id - 1] > 0) {
+                        newState[product.id - 1] -= 1;
+                        setCart(newState);
+                        console.log("SUB BUTTON:" + cart);
+                      }
+                    }}
+                  >
+                    Remove
+                  </button>
+                  </div>
+                  <p>Cart: {cart[product.id - 1]}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+
+
+
+
+
+
+
+
+
+
+              </div>
+            <h1>Payment Information</h1>
               <form class="row g-3" id="checkout-form">
                 {/* <!-- Full Name --> */}
                 <div class="col-md-6">

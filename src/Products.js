@@ -22,7 +22,7 @@ export const Products = [
     "title": "Daggers",
     "price": 350,
     "description": "Choose From a Variety of Daggers",
-    "category": "Blade",
+    "category": "Blades",
     "image": require("./daggers.png"),
     "rating": {"rate": 4.3, "count": 12},
   },

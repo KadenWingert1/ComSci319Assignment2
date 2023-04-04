@@ -14,28 +14,28 @@ export const App = () => {
   const [query, setQuery] = useState("");
   const [cart, setCart] = useState([0, 0, 0, 0, 0, 0]);
   const [isCartVisible, setIsCartVisible] = useState(false);
+  
 
   // var ProductsCategory = Products;
   const render_products = (ProductsCategory) => {
     return (
-      <div className="category-section fixed">
+      <div id ="browsePage" className="category-section fixed">
         {console.log("Step 3 : in render_products ")}
         <div className="container">
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-600 category-title">
             Products ({ProductsCategory.length})
           </h2>
-          <button onClick={() => setIsCartVisible(!isCartVisible)}>
-            <img
-              alt="Checkout"
-              src={require("./checkout.png")}
-              className="checkout"
-            />
-          </button>
+          <div onClick={() => setIsCartVisible(!isCartVisible)}>
+  <img
+    alt="Checkout"
+    src={require("./checkout.png")}
+    className="checkout"
+  />
+</div>
         </div>
-        <Cart isCartVisible={isCartVisible} />
+    <Cart isCartVisible={isCartVisible} cart={cart} setCart = {setCart} ProductsCategory = {ProductsCategory} setProductsCategory ={setProductsCategory} />
         <div
-          className="m-6 p-3 mt-10 ml-0 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-
-cols-2 lg:grid-cols-6 xl:gap-x-10"
+          className="m-6 p-3 mt-10 ml-0 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-10"
           style={{ maxHeight: "800px", overflowY: "scroll" }}
         >
           {/* Loop Products */}
@@ -103,11 +103,12 @@ text-green-600"
               </div>
             </div>
           ))}
+
         </div>
       </div>
     );
   };
-  console.log();
+  
 
   function handleClick(tag) {
     console.log("Step 4 : in handleClick", tag);
@@ -161,6 +162,7 @@ text-green-600"
             />
           </div>
           <div className="py-10">
+
             {Categories ? (
               <p
                 className="text-white"
