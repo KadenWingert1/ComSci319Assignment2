@@ -20,7 +20,6 @@ function Cart({ isCartVisible, cart, setCart, ProductsCategory }) {
     }
     setCartTotal(totalVal);
   };
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,7 +39,12 @@ function Cart({ isCartVisible, cart, setCart, ProductsCategory }) {
   };
 
   const resetApp = () => {
-    setCart([0, 0, 0, 0, 0, 0]); // Clear the cart
+    setCart([]); //Clears cart
+    const newCart = Array(ProductsCategory.length).fill(0); 
+    for(let i = 0; i < ProductsCategory.length; i++){
+      
+    }
+    setCart(newCart);
     setViewMode("cart"); // Set viewMode to the original state
   };
 
@@ -176,35 +180,42 @@ function Cart({ isCartVisible, cart, setCart, ProductsCategory }) {
           )}
           {viewMode === "confirmation" && (
             <div className="confirmation-view">
-            <h2>Order Confirmation</h2>
-            <p>Thank you for your order, {confirmation.name}!</p>
-            <hr />
-            <h3>Shipping Address</h3>
-            <p>{confirmation.address}</p>
-            {confirmation.address2 && <p>{confirmation.address2}</p>}
-            <p>
-              {confirmation.city}, {confirmation.state} {confirmation.zip}
-            </p>
-            <hr />
-            <h3>Order Summary</h3>
-            <ul>
-              {ProductsCategory.filter(
-                (product) => confirmation.cartItems[product.id - 1] >= 1
-              ).map((product, index) => (
-                <li key={index}>
-                  {product.title} x {confirmation.cartItems[product.id - 1]}
-                  <span>${(product.price * confirmation.cartItems[product.id - 1]).toFixed(2)}</span>
-                </li>
-              ))}
-            </ul>
-            <p>Total: ${cartTotal.toFixed(2)}</p>
-            <hr />
-            <p>A confirmation email has been sent to <strong>{confirmation.email}</strong>.</p>
-            <button className="btn btn-primary" onClick={resetApp}>
-              Continue Shopping
-            </button>
-          </div>
-          
+              <h2>Order Confirmation</h2>
+              <p>Thank you for your order, {confirmation.name}!</p>
+              <hr />
+              <h3>Shipping Address</h3>
+              <p>{confirmation.address}</p>
+              {confirmation.address2 && <p>{confirmation.address2}</p>}
+              <p>
+                {confirmation.city}, {confirmation.state} {confirmation.zip}
+              </p>
+              <hr />
+              <h3>Order Summary</h3>
+              <ul>
+                {ProductsCategory.filter(
+                  (product) => confirmation.cartItems[product.id - 1] >= 1
+                ).map((product, index) => (
+                  <li key={index}>
+                    {product.title} x {confirmation.cartItems[product.id - 1]}
+                    <span>
+                      $
+                      {(
+                        product.price * confirmation.cartItems[product.id - 1]
+                      ).toFixed(2)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p>Total: ${cartTotal.toFixed(2)}</p>
+              <hr />
+              <p>
+                A confirmation email has been sent to{" "}
+                <strong>{confirmation.email}</strong>.
+              </p>
+              <button className="btn btn-primary" onClick={resetApp}>
+                Continue Shopping
+              </button>
+            </div>
           )}
         </div>
       )}
