@@ -1,8 +1,17 @@
 import React from "react";
+import { Products } from "./Products";
 import { useState, useEffect } from "react";
 
-
-function Cart({ isCartVisible, setIsCartVisible, cart, setCart, isCardsVisible, setIsCardsVisible, ProductsCategory, setProductsCategory}) {
+function Cart({
+  isCartVisible,
+  setIsCartVisible,
+  cart,
+  setCart,
+  isCardsVisible,
+  setIsCardsVisible,
+  ProductsCategory,
+  setProductsCategory,
+}) {
   const [cartTotal, setCartTotal] = useState(0);
   const [confirmation, setConfirmation] = useState(null);
   const [viewMode, setViewMode] = useState("cart"); // Add this line
@@ -30,7 +39,7 @@ function Cart({ isCartVisible, setIsCartVisible, cart, setCart, isCardsVisible, 
       form.classList.add("was-validated");
       return;
     }
-  
+
     const confirmationData = {
       name: form.inputName.value,
       email: form.inputEmail4.value,
@@ -47,12 +56,22 @@ function Cart({ isCartVisible, setIsCartVisible, cart, setCart, isCardsVisible, 
   };
 
   const resetApp = () => {
-    setCart([]); //Clears cart
-    const newCart = Array(ProductsCategory.length).fill(0); 
-    //setIsCardsVisible(false);
+    // setCart([]); //Clears cart
+    // const newCart = Array(ProductsCategory.length).fill(0);
+    // setCart(newCart);
+
+    //setCart([0, 0, 0, 0, 0, 0]); // Clear the cart
+
+    console.log("PRODUCT CATEGORY: ", Products.length);
+    const arrayLength = Products.length;
+    const zeros = [];
+    for (let i = 0; i < arrayLength; i++) {
+      zeros.push(0);
+    }
+    setCart(zeros);
+
     setIsCartVisible(!isCartVisible);
     setIsCardsVisible(!isCardsVisible);
-    setCart(newCart);
     setViewMode("cart"); // Set viewMode to the original state
   };
 
@@ -71,7 +90,10 @@ function Cart({ isCartVisible, setIsCartVisible, cart, setCart, isCardsVisible, 
                     {ProductsCategory.filter(
                       (product) => cart[product.id - 1] >= 1
                     ).map((product, index) => (
-                      <div key={index} className="group relative shadow-lg cart-item">
+                      <div
+                        key={index}
+                        className="group relative shadow-lg cart-item"
+                      >
                         <div className=" min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
                           <img
                             alt="Product"
@@ -91,12 +113,22 @@ function Cart({ isCartVisible, setIsCartVisible, cart, setCart, isCardsVisible, 
                 </div>
               </div>
 
-              <form class="row g-3" id="checkout-form" onSubmit={handleSubmit} noValidate>
+              <form
+                class="row g-3"
+                id="checkout-form"
+                onSubmit={handleSubmit}
+                noValidate
+              >
                 <div class="col-md-6">
                   <label for="inputName" class="form-label">
                     Full Name
                   </label>
-                  <input type="text" class="form-control" id="inputName" required />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputName"
+                    required
+                  />
                   <div class="valid-feedback">Looks good!</div>
                   <div class="invalid-feedback">Must be like, "John Doe"</div>
                 </div>
@@ -105,7 +137,12 @@ function Cart({ isCartVisible, setIsCartVisible, cart, setCart, isCardsVisible, 
                   <label for="inputEmail4" class="form-label">
                     Email
                   </label>
-                  <input type="email" class="form-control" id="inputEmail4" required />
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="inputEmail4"
+                    required
+                  />
                   <div class="valid-feedback">Looks good!</div>
                   <div class="invalid-feedback">
                     Must be like, "abc@xyz.efg"
@@ -163,19 +200,34 @@ function Cart({ isCartVisible, setIsCartVisible, cart, setCart, isCardsVisible, 
                   <label for="inputCity" class="form-label">
                     City
                   </label>
-                  <input type="text" class="form-control" id="inputCity" required/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputCity"
+                    required
+                  />
                 </div>
                 <div class="col-md-6">
                   <label for="inputCity" class="form-label">
                     State
                   </label>
-                  <input type="text" class="form-control" id="inputCity" required/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputCity"
+                    required
+                  />
                 </div>
                 <div class="col-md-2">
                   <label for="inputZip" class="form-label">
                     Zip
                   </label>
-                  <input type="text" class="form-control" id="inputZip" required/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputZip"
+                    required
+                  />
                 </div>
                 <div class="col-12"></div>
 
