@@ -48,9 +48,6 @@ function Cart({ isCartVisible, cart, setCart, ProductsCategory }) {
   const resetApp = () => {
     setCart([]); //Clears cart
     const newCart = Array(ProductsCategory.length).fill(0); 
-    for(let i = 0; i < ProductsCategory.length; i++){
-      
-    }
     setCart(newCart);
     setViewMode("cart"); // Set viewMode to the original state
   };
