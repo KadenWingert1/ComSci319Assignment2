@@ -12,7 +12,7 @@ export const App = () => {
   console.log("Step 1: After reading file :");
   const [ProductsCategory, setProductsCategory] = useState(Products);
   const [query, setQuery] = useState("");
-  const [cart, setCart] = useState([0, 0, 0, 0, 0, 0]);
+  const [cart, setCart] = useState(Array(ProductsCategory.length).fill(0)); //Creates an array with the number of categories all filled with 0
   const [isCartVisible, setIsCartVisible] = useState(false);
   const [isCardsVisible, setIsCardsVisible] = useState(true);
 
@@ -40,8 +40,11 @@ export const App = () => {
         </div>
         <Cart
           isCartVisible={isCartVisible}
+          setIsCartVisible = {setIsCartVisible}
           cart={cart}
           setCart={setCart}
+          isCardsVisible = {isCardsVisible}
+          setIsCardsVisible = {setIsCardsVisible}
           ProductsCategory={ProductsCategory}
           setProductsCategory={setProductsCategory}
         />

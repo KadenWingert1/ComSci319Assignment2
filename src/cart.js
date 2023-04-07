@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-function Cart({ isCartVisible, cart, setCart, ProductsCategory }) {
+
+function Cart({ isCartVisible, setIsCartVisible, cart, setCart, isCardsVisible, setIsCardsVisible, ProductsCategory, setProductsCategory}) {
   const [cartTotal, setCartTotal] = useState(0);
   const [confirmation, setConfirmation] = useState(null);
   const [viewMode, setViewMode] = useState("cart"); // Add this line
@@ -48,6 +49,9 @@ function Cart({ isCartVisible, cart, setCart, ProductsCategory }) {
   const resetApp = () => {
     setCart([]); //Clears cart
     const newCart = Array(ProductsCategory.length).fill(0); 
+    //setIsCardsVisible(false);
+    setIsCartVisible(!isCartVisible);
+    setIsCardsVisible(!isCardsVisible);
     setCart(newCart);
     setViewMode("cart"); // Set viewMode to the original state
   };
