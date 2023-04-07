@@ -53,7 +53,7 @@ function Cart({ isCartVisible, cart, setCart, ProductsCategory }) {
               <div className="row">
                 <div className="col-2"></div>
                 <div className="col-8">
-                  <h1>View Your Cart</h1>
+                  <h1 className="viewCart">View Your Cart</h1>
                   <div className="cartItems">
                     {/* Loop Products */}
                     {ProductsCategory.filter(

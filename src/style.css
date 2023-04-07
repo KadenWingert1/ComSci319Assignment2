@@ -40,7 +40,10 @@ cursor: pointer;
 background-color: rgb(176, 136, 83);
 width: 70%;
 }
-
+.viewCart{
+  font-size: 2rem;
+  font-weight: 700;
+}
 /*Add/sub button's */
 .addsub{
   background-color: rgb(176, 136, 83);
