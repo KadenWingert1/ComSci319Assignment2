@@ -24,14 +24,21 @@ function Cart({ isCartVisible, cart, setCart, ProductsCategory }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const form = e.target;
+    if (!form.checkValidity()) {
+      e.stopPropagation();
+      form.classList.add("was-validated");
+      return;
+    }
+  
     const confirmationData = {
-      name: e.target.inputName.value,
-      email: e.target.inputEmail4.value,
-      address: e.target.inputAddress.value,
-      address2: e.target.inputAddress2.value,
-      city: e.target.inputCity.value,
-      state: e.target.inputCity.value,
-      zip: e.target.inputZip.value,
+      name: form.inputName.value,
+      email: form.inputEmail4.value,
+      address: form.inputAddress.value,
+      address2: form.inputAddress2.value,
+      city: form.inputCity.value,
+      state: form.inputCity.value,
+      zip: form.inputZip.value,
       cartItems: cart,
       cartTotal,
     };
@@ -59,7 +66,7 @@ function Cart({ isCartVisible, cart, setCart, ProductsCategory }) {
                     {ProductsCategory.filter(
                       (product) => cart[product.id - 1] >= 1
                     ).map((product, index) => (
-                      <div key={index} className="group relative shadow-lg">
+                      <div key={index} className="group relative shadow-lg cart-item">
                         <div className=" min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
                           <img
                             alt="Product"
@@ -79,12 +86,12 @@ function Cart({ isCartVisible, cart, setCart, ProductsCategory }) {
                 </div>
               </div>
 
-              <form class="row g-3" id="checkout-form" onSubmit={handleSubmit}>
+              <form class="row g-3" id="checkout-form" onSubmit={handleSubmit} noValidate>
                 <div class="col-md-6">
                   <label for="inputName" class="form-label">
                     Full Name
                   </label>
-                  <input type="text" class="form-control" id="inputName" />
+                  <input type="text" class="form-control" id="inputName" required />
                   <div class="valid-feedback">Looks good!</div>
                   <div class="invalid-feedback">Must be like, "John Doe"</div>
                 </div>
@@ -93,7 +100,7 @@ function Cart({ isCartVisible, cart, setCart, ProductsCategory }) {
                   <label for="inputEmail4" class="form-label">
                     Email
                   </label>
-                  <input type="email" class="form-control" id="inputEmail4" />
+                  <input type="email" class="form-control" id="inputEmail4" required />
                   <div class="valid-feedback">Looks good!</div>
                   <div class="invalid-feedback">
                     Must be like, "abc@xyz.efg"
@@ -115,6 +122,7 @@ function Cart({ isCartVisible, cart, setCart, ProductsCategory }) {
                       placeholder="XXXX-XXXX-XXXX-XXXX"
                       aria-label="Username"
                       aria-describedby="basic-addon1"
+                      required
                     />
                     <div class="valid-feedback">Looks good!</div>
                     <div class="invalid-feedback">
@@ -132,6 +140,7 @@ function Cart({ isCartVisible, cart, setCart, ProductsCategory }) {
                     class="form-control"
                     id="inputAddress"
                     placeholder="1234 Main St"
+                    required
                   />
                 </div>
                 <div class="col-12">
@@ -149,19 +158,19 @@ function Cart({ isCartVisible, cart, setCart, ProductsCategory }) {
                   <label for="inputCity" class="form-label">
                     City
                   </label>
-                  <input type="text" class="form-control" id="inputCity" />
+                  <input type="text" class="form-control" id="inputCity" required/>
                 </div>
                 <div class="col-md-6">
                   <label for="inputCity" class="form-label">
                     State
                   </label>
-                  <input type="text" class="form-control" id="inputCity" />
+                  <input type="text" class="form-control" id="inputCity" required/>
                 </div>
                 <div class="col-md-2">
                   <label for="inputZip" class="form-label">
                     Zip
                   </label>
-                  <input type="text" class="form-control" id="inputZip" />
+                  <input type="text" class="form-control" id="inputZip" required/>
                 </div>
                 <div class="col-12"></div>
 
