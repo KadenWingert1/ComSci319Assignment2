@@ -11,6 +11,8 @@ function Cart({
   setIsCardsVisible,
   ProductsCategory,
   setProductsCategory,
+  ShowCategories,
+  setShowCategories,
 }) {
   const [cartTotal, setCartTotal] = useState(0);
   const [confirmation, setConfirmation] = useState(null);
@@ -56,11 +58,6 @@ function Cart({
   };
 
   const resetApp = () => {
-    // setCart([]); //Clears cart
-    // const newCart = Array(ProductsCategory.length).fill(0);
-    // setCart(newCart);
-
-    //setCart([0, 0, 0, 0, 0, 0]); // Clear the cart
 
     console.log("PRODUCT CATEGORY: ", Products.length);
     const arrayLength = Products.length;
@@ -73,6 +70,7 @@ function Cart({
     setIsCartVisible(!isCartVisible);
     setIsCardsVisible(!isCardsVisible);
     setViewMode("cart"); // Set viewMode to the original state
+    setShowCategories(true);
   };
 
   return (
@@ -125,16 +123,6 @@ function Cart({
                   <p>Cart: {cart[product.id - 1]}</p>
                 </div>
               </div>
-
-
-
-
-
-
-
-
-
-
 
 
 

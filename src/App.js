@@ -15,6 +15,8 @@ export const App = () => {
   const [cart, setCart] = useState(Array(ProductsCategory.length).fill(0)); //Creates an array with the number of categories all filled with 0
   const [isCartVisible, setIsCartVisible] = useState(false);
   const [isCardsVisible, setIsCardsVisible] = useState(true);
+  const [showCategories, setShowCategories] = useState(true);
+
 
   // var ProductsCategory = Products;
   const render_products = (ProductsCategory) => {
@@ -29,6 +31,7 @@ export const App = () => {
             onClick={() => {
               setIsCartVisible(!isCartVisible);
               setIsCardsVisible(!isCardsVisible);
+              isCardsVisible ? setShowCategories(false) : setShowCategories(true); //Hides the buttons with the product category when you aren't on the browse page
             }}
           >
             <img
@@ -47,6 +50,8 @@ export const App = () => {
           setIsCardsVisible = {setIsCardsVisible}
           ProductsCategory={ProductsCategory}
           setProductsCategory={setProductsCategory}
+          showCategories = {showCategories}
+          setShowCategories = {setShowCategories}
         />
         <div
           className="m-6 p-3 mt-10 ml-0 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-10 products-section"
@@ -157,42 +162,51 @@ export const App = () => {
             by - <b>Kaden Wingert & Bryce Maloy</b>
           </p>
           <div className="py-10">
-            <input
+           {showCategories &&  <input
               type="search"
               value={query}
               onChange={handleChange}
               placeholder="Search..."
               style={{ backgroundColor: "white" }}
-            />
+            />}
           </div>
-          <div className="py-10">
-            {Categories ? (
-              <p
-                className="text-white"
-                style={{ color: "rgb(220, 221, 255)", fontWeight: "700" }}
-              >
-                Filter By Category:{" "}
-              </p>
-            ) : (
-              ""
-            )}
-            {Categories.map((tag) => (
-              <button
-                key={tag}
-                className="inline-block bg-amber-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2"
-                style={{
-                  color: "black",
-                  backgroundColor: "burlywood",
-                  fontSize: "20px",
-                }}
-                onClick={() => {
-                  handleClick(tag);
-                }}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
+          
+      <div className="py-10">
+        {showCategories && (
+          <p
+            className="text-white"
+            style={{
+              color: "rgb(220, 221, 255)",
+              fontWeight: "700"
+            }}
+          >
+            Filter By Category:{" "}
+          </p>
+        )}
+        {showCategories &&
+          Categories.map((tag) => (
+            <button
+              key={tag}
+              className="inline-block bg-amber-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2"
+              style={{
+                color: "black",
+                backgroundColor: "burlywood",
+                fontSize: "20px"
+              }}
+              onClick={() => {
+                handleClick(tag);
+              }}
+            >
+              {tag}
+            </button>
+          ))}
+      </div>
+  
+
+
+
+
+
         </div>
       </div>
       <div className="ml-5 p-10 xl:basis-4/5">
