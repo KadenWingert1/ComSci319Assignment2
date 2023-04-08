@@ -94,22 +94,56 @@ function Cart({
                         key={index}
                         className="group relative shadow-lg cart-item"
                       >
-                        <div className=" min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
-                          <img
-                            alt="Product"
-                            src={product.image}
-                            className="w-full h-full object-center object-cover lg:w-full lg:h-full"
-                          />
-                        </div>
-                        <div className="flex justify-between p-3">
-                          {/* The rest of your code */}
-                        </div>
+
+
+
+
+              <div className=" min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
+                <img
+                  alt="Product"
+                  src={product.image}
+                  className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                />
+              </div>
+              <div className="flex justify-between p-3">
+                <div>
+                  <h3 className="text-sm text-gray-700">
+                    <a href={product.href}>
+                      <span style={{ fontSize: "16px", fontWeight: "600" }}>
+                        {product.title}
+                      </span>
+                    </a>
+                    <p className="text-sm font-medium text-green-600">
+                      ${product.price}
+                    </p>
+                    Category: {product.category}
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">
+                    Rating:
+                    {product.rating.rate}
+                  </p>
+                  <p>Cart: {cart[product.id - 1]}</p>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
                       </div>
                     ))}
                   </div>
                   <h1>Payment Information</h1>
                   <div id="liveAlertPlaceholder"></div>
-                  {/* The rest of your code */}
+                  
                 </div>
               </div>
 
