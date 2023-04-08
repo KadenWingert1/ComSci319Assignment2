@@ -23,9 +23,9 @@ export const App = () => {
       <div id="browsePage" className="category-section">
         {console.log("Step 3 : in render_products ")}
         <div className="container">
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-600 category-title">
+         {showCategories && <h2 className="text-3xl font-extrabold tracking-tight text-gray-600 category-title">
             Products ({ProductsCategory.length})
-          </h2>
+          </h2>}
           <div
             onClick={() => {
               setIsCartVisible(!isCartVisible);
