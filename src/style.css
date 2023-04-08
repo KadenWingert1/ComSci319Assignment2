@@ -23,11 +23,17 @@ body{
 /*Sizes the checkout button image*/
 .checkout{
 width: 4rem;
-margin-right: 7rem;
+margin-right: 10rem;
 }
-.checkout:hover{
+.checkout:hover, .back:hover{
 cursor: pointer;
 }
+/*Sizes the Back button image*/
+.back{
+width: 5rem;
+margin-right: 10rem;
+}
+
 /*Container for Products(#) and checkout button image*/
 .container{
   display: flex;
