@@ -296,7 +296,7 @@ function Cart({
                 A confirmation email has been sent to{" "}
                 <strong>{confirmation.email}</strong>.
               </p>
-              <button className="btn btn-primary" onClick={resetApp}>
+              <button className="btn btn-primary" onClick={() => window.location.reload()}>
                 Continue Shopping
               </button>
             </div>
