@@ -55,6 +55,7 @@ function Cart({
     };
     setConfirmation(confirmationData);
     setViewMode("confirmation");
+    setShowCategories("confirmation");
   };
 
   const resetApp = () => {
@@ -70,7 +71,6 @@ function Cart({
     setIsCartVisible(!isCartVisible);
     setIsCardsVisible(!isCardsVisible);
     setViewMode("cart"); // Set viewMode to the original state
-    setShowCategories(true);
   };
 
   return (

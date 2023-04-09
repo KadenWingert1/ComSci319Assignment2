@@ -6,16 +6,16 @@ import React, { useState } from "react";
 //import { useEffect } from "react";
 import { Products } from "./Products";
 import { Categories } from "./Categories";
-import Cart from "./cart";
+import Cart, { viewMode, setViewMode, confimation, setConfirmation } from "./cart";
 
-export const App = () => {
+export const App = (confimation) => {
   console.log("Step 1: After reading file :");
   const [ProductsCategory, setProductsCategory] = useState(Products);
   const [query, setQuery] = useState("");
   const [cart, setCart] = useState(Array(ProductsCategory.length).fill(0)); //Creates an array with the number of categories all filled with 0
   const [isCartVisible, setIsCartVisible] = useState(false);
   const [isCardsVisible, setIsCardsVisible] = useState(true);
-  const [showCategories, setShowCategories] = useState(true);
+  const [showCategories, setShowCategories] = useState("true");
 
   // var ProductsCategory = Products;
   const render_products = (ProductsCategory) => {
@@ -31,24 +31,29 @@ export const App = () => {
               setIsCartVisible(!isCartVisible);
               setIsCardsVisible(!isCardsVisible);
               isCardsVisible
-                ? setShowCategories(false)
-                : setShowCategories(true); //Hides the buttons with the product category when you aren't on the browse page
+                ? setShowCategories("back")
+                : setShowCategories("true"); //Hides the buttons with the product category when you aren't on the browse page
             }}
           >
-            {showCategories && (
+            {showCategories == "true" && (
               <img
                 alt="Checkout"
                 src={require("./checkout.png")}
                 className="checkout"
               />
             )}
-            {!showCategories && (
+            {showCategories == "back" && (
               <img
                 alt="Back"
                 src={require("./back.png")}
                 className="back"
               />
             )}
+            {
+              showCategories == "confirmation" && (
+                ""
+              )}
+            
           </div>
         </div>
         <Cart
@@ -171,7 +176,7 @@ export const App = () => {
             by - <b>Kaden Wingert & Bryce Maloy</b>
           </p>
           <div className="py-10">
-            {showCategories && (
+            {showCategories == "true" && (
               <input
                 type="search"
                 value={query}
@@ -183,7 +188,7 @@ export const App = () => {
           </div>
 
           <div className="py-10">
-            {showCategories && (
+            {showCategories == "true" && (
               <p
                 className="text-white"
                 style={{
@@ -194,7 +199,7 @@ export const App = () => {
                 Filter By Category:{" "}
               </p>
             )}
-            {showCategories &&
+            {showCategories == "true" &&
               Categories.map((tag) => (
                 <button
                   key={tag}
