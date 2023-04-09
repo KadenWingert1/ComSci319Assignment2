@@ -92,11 +92,7 @@ function Cart({
                         key={index}
                         className="group relative shadow-lg cart-item"
                       >
-
-
-
-
-              <div className=" min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
+              <div className="min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
                 <img
                   alt="Product"
                   src={product.image}
@@ -290,7 +286,7 @@ function Cart({
                   </li>
                 ))}
               </ul>
-              <p>Total: ${cartTotal.toFixed(2)}</p>
+              <p style={{ fontSize: "1.25rem", fontWeight: "600" }}>Total: ${cartTotal.toFixed(2)}</p>
               <hr />
               <p>
                 A confirmation email has been sent to{" "}

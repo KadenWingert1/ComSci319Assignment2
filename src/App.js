@@ -11,25 +11,28 @@ import Cart, { viewMode, setViewMode, confimation, setConfirmation } from "./car
 export const App = (confimation) => {
   console.log("Step 1: After reading file :");
   const [ProductsCategory, setProductsCategory] = useState(Products);
+  const [ProductsCategory2, setProductsCategory2] = useState(Products);
   const [query, setQuery] = useState("");
   const [cart, setCart] = useState(Array(ProductsCategory.length).fill(0)); //Creates an array with the number of categories all filled with 0
   const [isCartVisible, setIsCartVisible] = useState(false);
   const [isCardsVisible, setIsCardsVisible] = useState(true);
   const [showCategories, setShowCategories] = useState("true");
 
-  // var ProductsCategory = Products;
   const render_products = (ProductsCategory) => {
     return (
       <div id="browsePage" className="category-section">
         {console.log("Step 3 : in render_products ")}
         <div className="container">
-         {showCategories && <h2 className="text-3xl font-extrabold tracking-tight text-gray-600 category-title">
+         {showCategories == "true" && <h2 className="text-3xl font-extrabold tracking-tight text-gray-600 category-title">
             Products ({ProductsCategory.length})
           </h2>}
           <div
             onClick={() => {
               setIsCartVisible(!isCartVisible);
               setIsCardsVisible(!isCardsVisible);
+              if(showCategories == "back" || showCategories == "true"){ //When you click the back arrow, it takes you back to a "fresh" screen showing all the products
+                setProductsCategory(Products);
+              }
               isCardsVisible
                 ? setShowCategories("back")
                 : setShowCategories("true"); //Hides the buttons with the product category when you aren't on the browse page
@@ -78,6 +81,7 @@ export const App = (confimation) => {
               <div key={index} className="group relative shadow-lg">
                 <div className=" min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
                   <img
+                   style={{ height:"100%" }}
                     alt="Product"
                     src={product.image}
                     className="w-full h-full object-center object-cover lg:w-full lg:h-full"
@@ -139,9 +143,6 @@ export const App = (confimation) => {
   function handleClick(tag) {
     console.log("Step 4 : in handleClick", tag);
     const filtered = Products.filter((product) => {
-      //   console.log("product:", product);
-      //   console.log("tag:", tag);
-      //   console.log("product.category:", product.category);
       return product.category === tag;
     });
     console.log("filtered products:", filtered);

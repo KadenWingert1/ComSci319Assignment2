@@ -5,7 +5,7 @@ export const Products = [
     "price": 200,
     "description": "Every Day Carry Pocket Knives.",
     "category": "Blades",
-    "image": require("./pocketKnife.jpg"),
+    "image": require("./pocketKnife.png"),
     "rating": {"rate": 4.75, "count": 111},
   },
   {
